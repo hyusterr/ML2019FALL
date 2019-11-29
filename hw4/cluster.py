@@ -161,12 +161,15 @@ print( kmeans.labels_[:10] )
 # In[ ]:
 
 
-# need reverse
-lst = [int(i) for i in kmeans.labels_]
+# need reverse?
+if int(kmeans.labels_[0]) == 1:
+    lst = [1 if str(i) == '0' else 0 for i in kmeans.labels_]
+else:
+    lst = [int(i) for i in kmeans.labels_]
 
 lst = [str(i) + ',' + str(lst[i]) + '\n' for i in range(len(lst))]
 
-print(lst)
+# print(lst)
 # output
 
 with open(sys.argv[2], 'w') as f:
